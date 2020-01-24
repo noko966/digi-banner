@@ -45,8 +45,6 @@ class Sketch {
     this.slides = [];
     this.alphas = [];
 
-    this.mouseMove();
-
     this.paused = true;
     this.initiate(() => {
       console.log(this.textures);
@@ -54,6 +52,7 @@ class Sketch {
       this.settings();
       this.addObjects();
       this.resize();
+      this.mouseMove();
       this.clickEvent();
       this.play();
     });
@@ -160,7 +159,7 @@ class Sketch {
         time: { type: "f", value: 0 },
         progress: { type: "f", value: 0 },
         border: { type: "f", value: 0 },
-        intensity: { type: "f", value: 0 },
+        intensity: { type: "f", value: 0.02 },
         scaleX: { type: "f", value: 40 },
         scaleY: { type: "f", value: 40 },
         transition: { type: "f", value: 40 },
