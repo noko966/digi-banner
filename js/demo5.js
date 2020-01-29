@@ -71,7 +71,7 @@ let sketch = new Sketch({
 			float blur1 = (n + random(vec2(n,n+1.)) * 0.3) * progress / 10.;
 			float blur2 = (n + random(vec2(n,n+1.)) * 0.3) * (1.-progress) / 10.;
 
-			vec2 myMouse = vec2(uMouse.x * 0.01 + sin(time) * 0.0025, uMouse.y * 0.01);
+			vec2 myMouse = vec2(uMouse.x * 0.01 + sin(time) * 0.003, uMouse.y * 0.01 + cos(time) * 0.003);
 
 			vec4 s1 = texture2D(slide1, vec2((vUv.x + blur1 + myMouse.x * (depth1.r - 0.5))  +  progress / 10. * (displace * intensity) , vUv.y + myMouse.y * (depth1.r - 0.5)));
 			vec4 s2 = texture2D(slide2, vec2((vUv.x + blur2 + myMouse.x * (depth2.r - 0.5))  + (1. - progress) / 10. * (displace * intensity) , vUv.y + myMouse.y * (depth2.r - 0.5)));
