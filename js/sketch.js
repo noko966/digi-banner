@@ -49,7 +49,7 @@ class Sketch {
     this.initiate(() => {
       console.log(this.textures);
       this.setupResize();
-      this.settings();
+      // this.settings();
       this.addObjects();
       this.resize();
       this.mouseMove();
@@ -99,24 +99,24 @@ class Sketch {
       this.next();
     });
   }
-  settings() {
-    let that = this;
-    if (this.debug) this.gui = new dat.GUI();
-    this.settings = { progress: 0.5 };
-    // if(this.debug) this.gui.add(this.settings, "progress", 0, 1, 0.01);
+  // settings() {
+  //   let that = this;
+  //   if (this.debug) this.gui = new dat.GUI();
+  //   this.settings = { progress: 0.5 };
+  //   // if(this.debug) this.gui.add(this.settings, "progress", 0, 1, 0.01);
 
-    Object.keys(this.uniforms).forEach(item => {
-      this.settings[item] = this.uniforms[item].value;
-      if (this.debug)
-        this.gui.add(
-          this.settings,
-          item,
-          this.uniforms[item].min,
-          this.uniforms[item].max,
-          0.01
-        );
-    });
-  }
+  //   Object.keys(this.uniforms).forEach(item => {
+  //     this.settings[item] = this.uniforms[item].value;
+  //     if (this.debug)
+  //       this.gui.add(
+  //         this.settings,
+  //         item,
+  //         this.uniforms[item].min,
+  //         this.uniforms[item].max,
+  //         0.01
+  //       );
+  //   });
+  // }
 
   setupResize() {
     window.addEventListener("resize", this.resize.bind(this));
@@ -241,9 +241,9 @@ class Sketch {
     this.material.uniforms.uMouse.value.x = this.mouseX;
     this.material.uniforms.uMouse.value.y = this.mouseY;
 
-    Object.keys(this.uniforms).forEach(item => {
-      this.material.uniforms[item].value = this.settings[item];
-    });
+    // Object.keys(this.uniforms).forEach(item => {
+    //   this.material.uniforms[item].value = this.settings[item];
+    // });
 
     // this.camera.position.z = 3;
     // this.plane.rotation.y = 0.4*Math.sin(this.time)
